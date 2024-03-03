@@ -19,7 +19,8 @@ test('create a pokemon', () => {
 })
 
 test('validate empty pokemon name', () => {
-    const pokemon = new Pokemon({
+
+    expect(() => new Pokemon({
         name: '',
         height: 0.3,
         weight: 4.0,
@@ -28,7 +29,5 @@ test('validate empty pokemon name', () => {
         category: 'Transform',
         weaknesses: ['Fighting'],
         description: 'Its transformation ability is perfect. However, if made to laugh, it can’t maintain its disguise.'
-    })
-
-    expect(pokemon).toThrow()
+    })).toThrow('Name can`t be empty! Please, type it pokemon name')
 })
